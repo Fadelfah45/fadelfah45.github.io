@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Fadel, création de sites web pour les commerces et petites entreprises d'Abidjan.">
+<title>Fadel Web Abidjan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0}img{max-width:100%}
+
+/* Layout: single column, lagoon-blue hero with a browser mock, then offers, demo projects, process, contact */
+:root{
+  --bg:#f6f8fa; --surface:#ffffff; --fg:#0f1d2b; --muted:#566676; --line:#dbe3ea;
+  --lagoon:#0b4f6c; --lagoon-ink:#ffffff; --orange:#f08a24; --orange-ink:#1a0f02; --soft:#e7f1f6;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Inter", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b141c; --surface:#122230; --fg:#e8eff5; --muted:#9db0c0; --line:#22384a;
+  --lagoon:#0e3a50; --lagoon-ink:#eaf5fb; --orange:#f59a3e; --orange-ink:#1a0f02; --soft:#15303f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b141c; --surface:#122230; --fg:#e8eff5; --muted:#9db0c0; --line:#22384a;
+  --lagoon:#0e3a50; --lagoon-ink:#eaf5fb; --orange:#f59a3e; --orange-ink:#1a0f02; --soft:#15303f; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{padding-block:72px}
+.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:640px}
+.sec-head p{color:var(--muted)}
+
+/* Nav */
+.nav{background:var(--lagoon);color:var(--lagoon-ink)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:18px;gap:16px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.logo span{color:var(--orange)}
+.nav a.btn-sm{font-weight:600;font-size:.9rem;text-decoration:none;border:1px solid color-mix(in srgb,var(--lagoon-ink) 40%,transparent);padding:8px 14px;border-radius:999px}
+.nav a.btn-sm:focus-visible,.btn:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+/* Hero */
+.hero{background:var(--lagoon);color:var(--lagoon-ink);padding-block:40px 80px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5.5vw,4rem);font-weight:800;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero .lead{font-size:1.1rem;opacity:.88;max-width:52ch;margin-top:18px}
+.hero .eyebrow{color:color-mix(in srgb,var(--lagoon-ink) 70%,transparent);margin-bottom:16px;display:block}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;font-weight:600;text-decoration:none;padding:13px 22px;border-radius:10px;border:0;font:600 1rem var(--body);cursor:pointer}
+.btn-primary{background:var(--orange);color:var(--orange-ink)}
+.btn-ghost{background:transparent;color:var(--lagoon-ink);border:1px solid color-mix(in srgb,var(--lagoon-ink) 40%,transparent)}
+.pay{margin-top:26px;font-family:var(--mono);font-size:.8rem;opacity:.75}
+
+/* Browser mock */
+.browser{background:var(--surface);color:var(--fg);border-radius:14px;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);overflow:hidden;min-width:0}
+.bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--soft);border-bottom:1px solid var(--line)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.url{flex:1;min-width:0;font-family:var(--mono);font-size:.78rem;color:var(--muted);background:var(--surface);padding:4px 10px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock{padding:22px;display:grid;gap:14px}
+.mock-hero{background:linear-gradient(135deg,var(--orange),#e0611b);border-radius:10px;padding:22px;color:#1a0f02}
+.mock-hero b{font-family:var(--display);font-size:1.3rem;display:block}
+.mock-hero small{opacity:.8}
+.mock-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mock-card{background:var(--soft);border-radius:8px;padding:12px;font-size:.8rem}
+.mock-card i{display:block;height:34px;border-radius:6px;background:var(--line);margin-bottom:8px}
+.mock-btn{justify-self:start;background:#25a244;color:#fff;font-size:.8rem;font-weight:600;padding:8px 12px;border-radius:8px}
+
+/* Offers */
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.offer.featured{border:2px solid var(--orange)}
+.tag{align-self:start;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;background:var(--orange);color:var(--orange-ink);padding:3px 8px;border-radius:5px}
+.price{font-family:var(--display);font-size:2rem;font-weight:800;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--body);font-size:.9rem;font-weight:500;color:var(--muted)}
+.offer ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:6px;font-size:.95rem}
+.offer .for{font-size:.9rem;color:var(--muted)}
+.note{margin-top:20px;font-size:.9rem;color:var(--muted)}
+
+/* Projects */
+.band{background:var(--soft)}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj{background:var(--surface);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.thumb{aspect-ratio:16/10;max-width:100%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.4rem;color:#fff;padding:16px;text-align:center}
+.t1{background:linear-gradient(140deg,#c2410c,#7c2d12)}
+.t2{background:linear-gradient(140deg,#0e7490,#164e63)}
+.t3{background:linear-gradient(140deg,#4d7c0f,#1a2e05)}
+.proj-body{padding:18px;display:grid;gap:8px}
+.proj-body p{color:var(--muted);font-size:.93rem}
+.chip{justify-self:start;font-family:var(--mono);font-size:.72rem;border:1px solid var(--line);color:var(--muted);padding:2px 8px;border-radius:999px}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;display:grid;gap:8px;align-content:start}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:1.1rem;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--lagoon);color:var(--lagoon-ink)}
+.steps p{color:var(--muted);font-size:.95rem}
+
+/* Contact */
+.contact{background:var(--lagoon);color:var(--lagoon-ink);border-radius:18px;padding:44px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.contact p{opacity:.85;margin-top:12px}
+.lines{display:grid;gap:12px}
+.line{display:flex;justify-content:space-between;align-items:center;gap:12px;background:color-mix(in srgb,var(--lagoon-ink) 10%,transparent);padding:14px 16px;border-radius:10px;flex-wrap:wrap}
+.line span{font-family:var(--mono);font-size:.9rem;user-select:all;min-width:0;overflow-wrap:anywhere}
+.line small{opacity:.7;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+.copy{background:var(--orange);color:var(--orange-ink);border:0;border-radius:8px;padding:7px 12px;font:600 .85rem var(--body);cursor:pointer}
+footer{padding-block:28px;color:var(--muted);font-size:.85rem}
+
+@media (max-width:860px){
+  .hero .wrap,.contact{grid-template-columns:1fr}
+  .offers,.projects{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .contact{padding:28px}
+}
+@media (max-width:480px){.steps{grid-template-columns:1fr}.mock-row{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s}.btn:hover{transform:translateY(-2px)}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <div class="logo">fadel<span>.</span>web</div>
+    <a class="btn-sm" href="#contact">Demander un devis</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Création de sites web · Abidjan</span>
+      <h1>Votre commerce mérite d'être <em>trouvé en ligne</em>.</h1>
+      <p class="lead">Je crée des sites simples, rapides et adaptés au téléphone pour les boutiques, maquis, salons et entrepreneurs d'Abidjan. Vos clients vous trouvent sur Google et vous écrivent directement sur WhatsApp.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#offres">Voir les tarifs</a>
+        <a class="btn btn-ghost" href="#exemples">Voir des exemples</a>
+      </div>
+      <p class="pay">Paiement : Orange Money · MTN MoMo · Wave · Espèces</p>
+    </div>
+    <div class="browser" aria-hidden="true">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">https://maquis-chez-tantie.ci</span></div>
+      <div class="mock">
+        <div class="mock-hero"><b>Maquis Chez Tantie</b><small>Garba, attiéké poisson, alloco · Marcory</small></div>
+        <div class="mock-row">
+          <div class="mock-card"><i></i>Menu du jour</div>
+          <div class="mock-card"><i></i>Horaires</div>
+          <div class="mock-card"><i></i>Itinéraire</div>
+        </div>
+        <span class="mock-btn">Commander sur WhatsApp</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="offres">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Tarifs de lancement</span>
+        <h2>Trois formules, un prix clair</h2>
+        <p>Prix fixes, annoncés avant de commencer. 50 % à la commande, 50 % à la livraison.</p>
+      </div>
+      <div class="offers">
+        <article class="offer">
+          <h3>Page vitrine</h3>
+          <div class="price">75 000 <small>FCFA</small></div>
+          <p class="for">Pour être visible vite : une seule page avec l'essentiel.</p>
+          <ul><li>Présentation, photos, horaires</li><li>Bouton WhatsApp et appel</li><li>Carte d'accès</li><li>Livraison en 5 jours</li></ul>
+        </article>
+        <article class="offer featured">
+          <span class="tag">Le plus demandé</span>
+          <h3>Site complet</h3>
+          <div class="price">150 000 <small>FCFA</small></div>
+          <p class="for">Pour une entreprise qui veut présenter tous ses services.</p>
+          <ul><li>Jusqu'à 5 pages</li><li>Galerie, services, avis clients</li><li>Formulaire de contact</li><li>Référencement Google de base</li><li>Livraison en 10 jours</li></ul>
+        </article>
+        <article class="offer">
+          <h3>Suivi mensuel</h3>
+          <div class="price">15 000 <small>FCFA / mois</small></div>
+          <p class="for">Pour garder un site à jour sans s'en occuper.</p>
+          <ul><li>Modifications de textes et photos</li><li>Mise à jour des prix et menus</li><li>Hébergement surveillé</li></ul>
+        </article>
+      </div>
+      <p class="note">Nom de domaine et hébergement non inclus (environ 15 000 à 30 000 FCFA par an selon l'offre choisie).</p>
+    </div>
+  </section>
+
+  <section id="exemples" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Projets de démonstration</span>
+        <h2>À quoi peut ressembler votre site</h2>
+        <p>Ces sites sont des exemples réalisés pour montrer mon travail. Ce ne sont pas encore des commandes de clients.</p>
+      </div>
+      <div class="projects">
+        <article class="proj"><div class="thumb t1">Maquis Chez Tantie</div><div class="proj-body"><span class="chip">Restaurant · Marcory</span><h3>Menu et commande WhatsApp</h3><p>Menu du jour, photos des plats et commande en un clic.</p></div></article>
+        <article class="proj"><div class="thumb t2">Salon Élégance</div><div class="proj-body"><span class="chip">Coiffure · Cocody</span><h3>Prestations et rendez-vous</h3><p>Tarifs des coiffures, galerie et prise de rendez-vous.</p></div></article>
+        <article class="proj"><div class="thumb t3">Boutique Adjamé Pagne</div><div class="proj-body"><span class="chip">Commerce · Adjamé</span><h3>Catalogue de produits</h3><p>Pagnes classés par motif et prix, avec commande par message.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Comment ça se passe</span>
+        <h2>De la discussion au site en ligne</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>On discute</h3><p>Vous m'expliquez votre activité et ce que vous voulez montrer.</p></li>
+        <li><h3>Je propose</h3><p>Vous recevez une maquette et un prix fixe sous 48 h.</p></li>
+        <li><h3>Je construis</h3><p>Le site est créé avec vos textes et vos photos.</p></li>
+        <li><h3>Vous êtes en ligne</h3><p>Vous validez, et votre site est publié avec votre nom.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2>Parlons de votre site</h2>
+          <p>Écrivez-moi sur Fiverr avec le nom de votre activité. Je réponds dans la journée avec une première idée et un prix.</p>
+        </div>
+        <div class="lines">
+          <div class="line"><div><small>Fiverr</small><br><span id="fv">fiverr.com/fadel_webdev</span></div><a class="copy" href="https://www.fiverr.com/fadel_webdev" target="_blank" rel="noopener" style="text-decoration:none">Me contacter</a></div>
+          <div class="line"><div><small>Zone</small><br><span>Abidjan et à distance</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Fadel · Création de sites web à Abidjan</div></footer>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target), t=el.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+    try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copié';setTimeout(function(){b.textContent='Copier'},1500)},sel)}catch(e){sel()}
+  });
+});
+</script>
+</body>
+</html>
